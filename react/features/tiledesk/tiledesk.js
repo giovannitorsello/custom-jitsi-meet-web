@@ -1,5 +1,7 @@
+import { configWillLoad } from "../base/config";
+
 window.tiledeskSettings = {
-	 projectid: "5ff33d8af5195b0019b23c54"
+	 projectid: config.tiledesk.projectId;
    };
 
    (function(d, s, id) {              

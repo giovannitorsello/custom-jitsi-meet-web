@@ -1,0 +1,17 @@
+interface_config.js		/usr/share/custom-meet/
+logging_config.js		/usr/share/custom-meet/
+*.json					/usr/share/custom-meet/
+*.html					/usr/share/custom-meet/
+*.ico					/usr/share/custom-meet/
+libs					/usr/share/custom-meet/
+static                  /usr/share/custom-meet/
+css/all.css 			/usr/share/custom-meet/css/
+sounds					/usr/share/custom-meet/
+fonts					/usr/share/custom-meet/
+images					/usr/share/custom-meet/
+lang					/usr/share/custom-meet/
+connection_optimization	/usr/share/custom-meet/
+resources/robots.txt	/usr/share/custom-meet/
+resources/*.sh			/usr/share/custom-meet/scripts/
+pwa-worker.js			/usr/share/custom-meet/
+manifest.json			/usr/share/custom-meet/

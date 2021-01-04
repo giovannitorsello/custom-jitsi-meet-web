@@ -20,12 +20,12 @@ $(LANGUAGES):
 	LOCALE=$$(echo $@ | cut -c1-2) ; \
 	if [ -f $(COUNTRIES_DIR)/$@.json ] ; \
 	then \
-		dh_install -pjitsi-meet-web $(COUNTRIES_DIR)/$@.json usr/share/jitsi-meet/lang/; \
-		mv debian/jitsi-meet-web/usr/share/jitsi-meet/lang/$@.json debian/jitsi-meet-web/usr/share/jitsi-meet/lang/countries-$@.json; \
+		dh_install -pcustom-meet-web $(COUNTRIES_DIR)/$@.json usr/share/custom-meet/lang/; \
+		mv debian/custom-meet-web/usr/share/custom-meet/lang/$@.json debian/custom-meet-web/usr/share/custom-meet/lang/countries-$@.json; \
 	else \
 		if [ -f $(COUNTRIES_DIR)/$$LOCALE.json ] ; \
 		then \
-			dh_install -pjitsi-meet-web $(COUNTRIES_DIR)/$$LOCALE.json usr/share/jitsi-meet/lang/; \
-			mv debian/jitsi-meet-web/usr/share/jitsi-meet/lang/$$LOCALE.json debian/jitsi-meet-web/usr/share/jitsi-meet/lang/countries-$@.json; \
+			dh_install -pcustom-meet-web $(COUNTRIES_DIR)/$$LOCALE.json usr/share/custom-meet/lang/; \
+			mv debian/custom-meet-web/usr/share/custom-meet/lang/$$LOCALE.json debian/custom-meet-web/usr/share/custom-meet/lang/countries-$@.json; \
 		fi; \
 	fi;

@@ -1,5 +1,5 @@
 #!/bin/bash
-# postinst script for jitsi-meet-web-config
+# postinst script for custom-meet-web-config
 #
 # see: dh_installdeb(1)
 
@@ -35,7 +35,7 @@ case "$1" in
 
         # detect dpkg-reconfigure
         RECONFIGURING="false"
-        db_get jitsi-meet/jvb-hostname
+        db_get custom-meet/jvb-hostname
         JVB_HOSTNAME_OLD=$RET
         if [ -n "$RET" ] && [ ! "$JVB_HOSTNAME_OLD" = "$JVB_HOSTNAME" ] ; then
             RECONFIGURING="true"
@@ -44,13 +44,13 @@ case "$1" in
 
         JVB_SERVE="false"
         # this detect only old installations
-        db_get jitsi-meet/jvb-serve || true
+        db_get custom-meet/jvb-serve || true
         if [ -n "$RET" ] && [ "$RET" = "true" ] ; then
             JVB_SERVE="true"
         fi
 
         # stores the hostname so we will reuse it later, like in purge
-        db_set jitsi-meet/jvb-hostname $JVB_HOSTNAME
+        db_set custom-meet/jvb-hostname $JVB_HOSTNAME
 
         NGINX_INSTALL_CHECK="$(dpkg-query -f '${Status}' -W 'nginx' 2>/dev/null | awk '{print $3}' || true)"
         NGINX_FULL_INSTALL_CHECK="$(dpkg-query -f '${Status}' -W 'nginx-full' 2>/dev/null | awk '{print $3}' || true)"
@@ -71,19 +71,19 @@ case "$1" in
         UPLOADED_CERT_CHOICE="I want to use my own certificate"
         # if first time config ask for certs, or if we are reconfiguring
         if [ -z "$JVB_HOSTNAME_OLD" ] || [ "$RECONFIGURING" = "true" ] ; then
-            db_get jitsi-meet/cert-choice
+            db_get custom-meet/cert-choice
             CERT_CHOICE="$RET"
 
             if [ "$CERT_CHOICE" = "$UPLOADED_CERT_CHOICE" ] ; then
-                db_set jitsi-meet/cert-path-key "/etc/ssl/$JVB_HOSTNAME.key"
-                db_input critical jitsi-meet/cert-path-key || true
+                db_set custom-meet/cert-path-key "/etc/ssl/$JVB_HOSTNAME.key"
+                db_input critical custom-meet/cert-path-key || true
                 db_go
-                db_get jitsi-meet/cert-path-key
+                db_get custom-meet/cert-path-key
                 CERT_KEY="$RET"
-                db_set jitsi-meet/cert-path-crt "/etc/ssl/$JVB_HOSTNAME.crt"
-                db_input critical jitsi-meet/cert-path-crt || true
+                db_set custom-meet/cert-path-crt "/etc/ssl/$JVB_HOSTNAME.crt"
+                db_input critical custom-meet/cert-path-crt || true
                 db_go
-                db_get jitsi-meet/cert-path-crt
+                db_get custom-meet/cert-path-crt
                 CERT_CRT="$RET"
             else
                 # create self-signed certs
@@ -105,12 +105,12 @@ case "$1" in
         # jitsi meet
         JITSI_MEET_CONFIG="/etc/jitsi/meet/$JVB_HOSTNAME-config.js"
         if [ ! -f $JITSI_MEET_CONFIG ] ; then
-            cp /usr/share/jitsi-meet-web-config/config.js $JITSI_MEET_CONFIG
+            cp /usr/share/custom-meet-web-config/config.js $JITSI_MEET_CONFIG
             # replaces needed config for multidomain as it works only with nginx
             if [[ "$FORCE_NGINX" = "true" ]] ; then
-                sed -i "s/conference.jitsi-meet.example.com/conference.<\!--# echo var=\"subdomain\" default=\"\" -->jitsi-meet.example.com/g" $JITSI_MEET_CONFIG
+                sed -i "s/conference.custom-meet.example.com/conference.<\!--# echo var=\"subdomain\" default=\"\" -->custom-meet.example.com/g" $JITSI_MEET_CONFIG
             fi
-            sed -i "s/jitsi-meet.example.com/$JVB_HOSTNAME/g" $JITSI_MEET_CONFIG
+            sed -i "s/custom-meet.example.com/$JVB_HOSTNAME/g" $JITSI_MEET_CONFIG
         fi
 
         # getting rid of jetty serving web
@@ -122,7 +122,7 @@ case "$1" in
                 echo ""
                 echo "------------------------------------------------"
                 echo ""
-                echo "You are using jetty to serve jitsi-meet, we are now upgrading you to use nginx!"
+                echo "You are using jetty to serve custom-meet, we are now upgrading you to use nginx!"
                 echo ""
                 echo "If you are using Let’s Encrypt certificates please re-run the script."
                 echo ""
@@ -139,13 +139,13 @@ case "$1" in
                 # Removing this value will force nginx or apache to be locally configured
                 JVB_HOSTNAME_OLD=""
 
-                db_get jitsi-meet/cert-choice
+                db_get custom-meet/cert-choice
                 CERT_CHOICE="$RET"
                 # Fix certs on upgrade from jetty
                 if [ "$CERT_CHOICE" = "$UPLOADED_CERT_CHOICE" ] ; then
-                    db_get jitsi-meet/cert-path-key
+                    db_get custom-meet/cert-path-key
                     CERT_KEY="$RET"
-                    db_get jitsi-meet/cert-path-crt
+                    db_get custom-meet/cert-path-crt
                     CERT_CRT="$RET"
                 else
                     # create self-signed certs
@@ -154,7 +154,7 @@ case "$1" in
                 fi
             fi
 
-            db_set jitsi-meet/jvb-serve "false"
+            db_set custom-meet/jvb-serve "false"
         fi
 
         if [[ "$FORCE_NGINX" = "true" && ( -z "$JVB_HOSTNAME_OLD" || "$RECONFIGURING" = "true" ) ]] ; then
@@ -167,11 +167,11 @@ case "$1" in
 
             # nginx conf
             if [ ! -f /etc/nginx/sites-available/$JVB_HOSTNAME.conf ] ; then
-                cp /usr/share/jitsi-meet-web-config/jitsi-meet.example /etc/nginx/sites-available/$JVB_HOSTNAME.conf
+                cp /usr/share/custom-meet-web-config/custom-meet.example /etc/nginx/sites-available/$JVB_HOSTNAME.conf
                 if [ ! -f /etc/nginx/sites-enabled/$JVB_HOSTNAME.conf ] ; then
                     ln -s /etc/nginx/sites-available/$JVB_HOSTNAME.conf /etc/nginx/sites-enabled/$JVB_HOSTNAME.conf
                 fi
-                sed -i "s/jitsi-meet.example.com/$JVB_HOSTNAME/g" /etc/nginx/sites-available/$JVB_HOSTNAME.conf
+                sed -i "s/custom-meet.example.com/$JVB_HOSTNAME/g" /etc/nginx/sites-available/$JVB_HOSTNAME.conf
             fi
 
             if [ "$CERT_CHOICE" = "$UPLOADED_CERT_CHOICE" ] ; then
@@ -199,9 +199,9 @@ case "$1" in
             if [ ! -f /etc/apache2/sites-available/$JVB_HOSTNAME.conf ] ; then
                 # when creating new config, make sure all needed modules are enabled
                 a2enmod rewrite ssl headers proxy_http include
-                cp /usr/share/jitsi-meet-web-config/jitsi-meet.example-apache /etc/apache2/sites-available/$JVB_HOSTNAME.conf
+                cp /usr/share/custom-meet-web-config/custom-meet.example-apache /etc/apache2/sites-available/$JVB_HOSTNAME.conf
                 a2ensite $JVB_HOSTNAME.conf
-                sed -i "s/jitsi-meet.example.com/$JVB_HOSTNAME/g" /etc/apache2/sites-available/$JVB_HOSTNAME.conf
+                sed -i "s/custom-meet.example.com/$JVB_HOSTNAME/g" /etc/apache2/sites-available/$JVB_HOSTNAME.conf
             fi
 
             if [ "$CERT_CHOICE" = "$UPLOADED_CERT_CHOICE" ] ; then
@@ -222,7 +222,7 @@ case "$1" in
         echo "----------------"
         echo ""
         echo "You can now switch to a Let’s Encrypt certificate. To do so, execute:"
-        echo "/usr/share/jitsi-meet/scripts/install-letsencrypt-cert.sh"
+        echo "/usr/share/custom-meet/scripts/install-letsencrypt-cert.sh"
         echo ""
         echo "----------------"
 

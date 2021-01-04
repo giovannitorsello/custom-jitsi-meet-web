@@ -87,6 +87,10 @@ import OverflowMenuProfileItem from './OverflowMenuProfileItem';
 import ToolbarButton from './ToolbarButton';
 import VideoSettingsButton from './VideoSettingsButton';
 
+import TiledeskComponent from '../../../tiledesk/TiledeskComponent.js';
+
+
+
 /**
  * The type of the React {@code Component} props of {@link Toolbox}.
  */
@@ -1314,6 +1318,7 @@ class Toolbox extends Component<Props, State> {
 
         return (
             <div className = 'toolbox-content'>
+                <TiledeskComponent />
                 <div className = 'button-group-left'>
                     { buttonsLeft.indexOf('chat') !== -1
                         && <div className = 'toolbar-button-with-badge'>
@@ -1338,7 +1343,7 @@ class Toolbox extends Component<Props, State> {
                         buttonsLeft.indexOf('closedcaptions') !== -1
                             && <ClosedCaptionButton />
                     }
-                </div>
+                </div>                
                 <div className = 'button-group-center'>
                     { this._renderAudioButton() }
                     <HangupButton
@@ -1373,8 +1378,7 @@ class Toolbox extends Component<Props, State> {
                                 { overflowMenuContent }
                             </ul>
                         </OverflowMenuButton> }
-                </div>
-                <script src="tiledesk.js"></script>
+                </div>                
             </div>);
     }
 

@@ -1,0 +1,3 @@
+doc/debian/custom-meet/custom-meet.example        /usr/share/custom-meet-web-config/
+doc/debian/custom-meet/custom-meet.example-apache /usr/share/custom-meet-web-config/
+config.js                                       /usr/share/custom-meet-web-config/
