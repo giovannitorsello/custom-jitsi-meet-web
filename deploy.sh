@@ -13,13 +13,12 @@ scp -ri $cert *.ico					    ubuntu@meet.tiledesk.com:/home/ubuntu/jitsi-meet/
 scp -ri $cert libs					    ubuntu@meet.tiledesk.com:/home/ubuntu/jitsi-meet/
 scp -ri $cert static                    ubuntu@meet.tiledesk.com:/home/ubuntu/jitsi-meet/
 scp -ri $cert css/all.css 			    ubuntu@meet.tiledesk.com:/home/ubuntu/jitsi-meet/css/
-scp -ri $cert sounds					ubuntu@meet.tiledesk.com:/home/ubuntu/jitsi-meet/
-scp -ri $cert fonts					    ubuntu@meet.tiledesk.com:/home/ubuntu/jitsi-meet/
+#scp -ri $cert sounds					ubuntu@meet.tiledesk.com:/home/ubuntu/jitsi-meet/
+#scp -ri $cert fonts					    ubuntu@meet.tiledesk.com:/home/ubuntu/jitsi-meet/
 scp -ri $cert images					ubuntu@meet.tiledesk.com:/home/ubuntu/jitsi-meet/
-scp -ri $cert lang					    ubuntu@meet.tiledesk.com:/home/ubuntu/jitsi-meet/
+#scp -ri $cert lang					    ubuntu@meet.tiledesk.com:/home/ubuntu/jitsi-meet/
 scp -ri $cert connection_optimization	ubuntu@meet.tiledesk.com:/home/ubuntu/jitsi-meet/
 scp -ri $cert resources/robots.txt	    ubuntu@meet.tiledesk.com:/home/ubuntu/jitsi-meet/
 scp -ri $cert resources/*.sh			ubuntu@meet.tiledesk.com:/home/ubuntu/jitsi-meet/scripts/
 scp -ri $cert pwa-worker.js			    ubuntu@meet.tiledesk.com:/home/ubuntu/jitsi-meet/
 scp -ri $cert manifest.json			    ubuntu@meet.tiledesk.com:/home/ubuntu/jitsi-meet/
-
