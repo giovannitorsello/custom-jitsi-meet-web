@@ -1,0 +1,6 @@
+depth=0 O = localdomain, OU = leomirko, CN = jitsi.mirko.it, emailAddress = webmaster@leomirko.localdomain
+verify error:num=18:self signed certificate
+verify return:1
+depth=0 O = localdomain, OU = leomirko, CN = jitsi.mirko.it, emailAddress = webmaster@leomirko.localdomain
+verify return:1
+DONE
