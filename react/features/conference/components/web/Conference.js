@@ -23,10 +23,10 @@ import {
     abstractMapStateToProps
 } from '../AbstractConference';
 import type { AbstractProps } from '../AbstractConference';
+import  TiledeskComponent  from '../../../tiledesk/TiledeskComponent.js';
 
 import Labels from './Labels';
 import { default as Notice } from './Notice';
-import TiledeskComponent from '../../../tiledesk/TiledeskComponent.js';
 
 declare var APP: Object;
 declare var interfaceConfig: Object;
@@ -189,6 +189,7 @@ class Conference extends AbstractConference<Props, *> {
                 id = 'videoconference_page'
                 onMouseMove = { this._onShowToolbar }>
                 <Notice />
+                <TiledeskComponent></TiledeskComponent>
                 <div id = 'videospace'>
                     <LargeVideo />
                     <KnockingParticipantList />
@@ -204,7 +205,6 @@ class Conference extends AbstractConference<Props, *> {
                 <CalleeInfoContainer />
 
                 { _showPrejoin && <Prejoin />}
-                <TiledeskComponent />
             </div>
         );
     }
