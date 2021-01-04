@@ -1,7 +1,7 @@
 import { configWillLoad } from "../base/config";
 
 window.tiledeskSettings = {
-	 projectid: config.tiledesk.projectId;
+	 projectid: config.tiledesk.projectId
    };
 
    (function(d, s, id) {              

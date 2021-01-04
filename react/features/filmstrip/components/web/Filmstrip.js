@@ -17,6 +17,8 @@ import { getCurrentLayout, LAYOUTS } from '../../../video-layout';
 import { setFilmstripHovered, setFilmstripVisible } from '../../actions';
 import { shouldRemoteVideosBeVisible } from '../../functions';
 
+
+
 declare var APP: Object;
 declare var interfaceConfig: Object;
 
