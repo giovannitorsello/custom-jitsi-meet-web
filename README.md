@@ -39,7 +39,7 @@ npm link lib-jitsi-meet
 ```
 npm install
 ```
-to install all requirements fro your custom content.
+to install all requirements from your custom content.
 
 8) Build all bundle in develop and production release
 First set your server by anvironmental variable
