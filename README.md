@@ -38,6 +38,7 @@ npm link lib-jitsi-meet
 7) Finally launch 
 ```
 npm install
+npm run postinstall
 ```
 to install all requirements from your custom content.
 
