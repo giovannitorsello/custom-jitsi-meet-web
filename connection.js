@@ -22,7 +22,7 @@ const logger = Logger.getLogger(__filename);
  *
  * @type {string}
  */
-export const DISCO_JIBRI_FEATURE = 'http://jitsi.org/protocol/jibri';
+export const DISCO_JIBRI_FEATURE = 'http://meet.tiledesk.com/protocol/jibri';
 
 /**
  * Checks if we have data to use attach instead of connect. If we have the data
@@ -91,7 +91,7 @@ function connect(id, password, roomName) {
     serviceUrl += `?room=${roomName}`;
 
     // FIXME Remove deprecated 'bosh' option assignment at some point(LJM will be accepting only 'serviceUrl' option
-    //  in future). It's included for the time being for Jitsi Meet and lib-jitsi-meet versions interoperability.
+    //  in future). It's included for the time being for Meet and lib-jitsi-meet versions interoperability.
     connectionConfig.serviceUrl = connectionConfig.bosh = serviceUrl;
 
     const connection = new JitsiMeetJS.JitsiConnection(null, jwt, connectionConfig);

@@ -1,7 +1,7 @@
 Format: http://dep.debian.net/deps/dep5
-Upstream-Name: Jitsi Meet
-Upstream-Contact: Emil Ivov <emcho@jitsi.org>
-Source: https://github.com/jitsi/jitsi-meet
+Upstream-Name: Meet
+Upstream-Contact: Giovanni Torsello <giovanni.torsello@gmail.com>
+Source: https://github.com/giovannitorsello/custom-jitsi-meet-web.git
 
 Files: *
 Copyright: 2015 Atlassian Pty Ltd

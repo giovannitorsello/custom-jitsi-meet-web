@@ -1,4 +1,4 @@
-rootProject.name = 'jitsi-meet'
+rootProject.name = 'Meet'
 
 include ':app', ':sdk'
 include ':react-native-async-storage'

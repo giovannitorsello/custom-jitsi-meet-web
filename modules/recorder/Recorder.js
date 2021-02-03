@@ -34,7 +34,7 @@ class Recorder {
             _USER_INFO_COMMAND,
             {
                 attributes: {
-                    xmlns: 'http://jitsi.org/jitmeet/userinfo',
+                    xmlns: 'http://meet.tiledesk.com/jitmeet/userinfo',
                     robot: true
                 }
             });

@@ -3,7 +3,7 @@ We would love to have your help. Before you start working however, please read
 and follow this short guide.
 
 # Reporting Issues
-Provide as much information as possible. Mention the version of Jitsi Meet, 
+Provide as much information as possible. Mention the version of Meet, 
 Jicofo and JVB you are using, and explain (as detailed as you can) how the 
 problem can be reproduced.
 
@@ -16,8 +16,8 @@ While the Jitsi projects are released under the
 holder and principal creator is [8x8](https://www.8x8.com/). To
 ensure that we can continue making these projects available under an Open Source license,
 we need you to sign our Apache-based contributor
-license agreement as either a [corporation](https://jitsi.org/ccla) or an
-[individual](https://jitsi.org/icla). If you cannot accept the terms laid out
+license agreement as either a [corporation](https://tiledesk.com/ccla) or an
+[individual](https://tiledesk.com/icla). If you cannot accept the terms laid out
 in the agreement, unfortunately, we cannot accept your contribution.
 
 ## Creating Pull Requests

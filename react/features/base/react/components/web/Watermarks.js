@@ -65,7 +65,7 @@ type State = {
     showBrandWatermark: boolean,
 
     /**
-     * Whether or not the show the "powered by Jitsi.org" link.
+     * Whether or not the show the "powered by Tiledesk" link.
      */
     showPoweredBy: boolean
 };
@@ -200,9 +200,9 @@ class Watermarks extends Component<Props, State> {
             return (
                 <a
                     className = 'poweredby'
-                    href = 'http://jitsi.org'
+                    href = 'http://tiledesk.com'
                     target = '_new'>
-                    <span>{ t('poweredby') } jitsi.org</span>
+                    <span>{ t('poweredby') } Tiledesk.com</span>
                 </a>
             );
         }

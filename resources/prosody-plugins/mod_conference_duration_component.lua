@@ -39,7 +39,7 @@ function occupant_joined(event)
             from = module.host;
             to = occupant.jid;
         })
-        :tag("json-message", {xmlns='http://jitsi.org/jitmeet'})
+        :tag("json-message", {xmlns='http://meet.tildesk.com/meetMessage'})
         :text(json.encode(body_json)):up();
 
         room:route_stanza(stanza);

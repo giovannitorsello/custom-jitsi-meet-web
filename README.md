@@ -1,4 +1,4 @@
-# Custom version of frontend - Original project Jitsi Meet https://github.com/jitsi/jitsi-meet
+# Custom version of frontend - Original project Meet https://github.com/jitsi/jitsi-meet
 
 Install istructions
 
