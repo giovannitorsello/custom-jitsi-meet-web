@@ -13,7 +13,7 @@ cd custom-jitsi-meet-web
 
 3) First of all, download and install lib-jitsi-meet
 ```
-git clone https://github.com/jitsi/lib-jitsi-meet.git
+cd ..
 cd lib-jitsi-meet
 ```
 
