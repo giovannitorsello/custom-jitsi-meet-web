@@ -3,7 +3,12 @@
 var config = {
     // Connection
     //
-    tiledesk: { projectId: '5ff33d8af5195b0019b23c54' },
+    tiledesk: {
+        tiledeskSettings: {
+            projectId: '5ff33d8af5195b0019b23c54',
+            marginY: '60px'
+        }
+    },
     hosts: {
         // XMPP domain.
         domain: 'meet.tiledesk.com',
