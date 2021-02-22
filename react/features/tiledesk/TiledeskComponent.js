@@ -24,7 +24,7 @@ class TiledeskComponent extends React.Component {
             // Create inline script
             var jsCode =
                 `
-          window.tiledeskSettings =  "`+config.tiledesk.tiledeskSettings`";
+          window.tiledeskSettings =  "`config.tiledesk.tiledeskSettings`";
           
           (function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
