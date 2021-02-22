@@ -15,7 +15,7 @@ class TiledeskComponent extends React.Component {
     render() {
         console.log("Loading TiledeskComponent");
         console.log(config.tiledesk);
-        if (config.tiledesk && config.tiledesk.projectId) {
+        if (config.tiledesk && config.tiledesk.tiledeskSettings && config.tiledesk.tiledeskSettings.projectId) {
             // Create a script element
             let script = document.createElement("script");
             // Set attributes
@@ -24,12 +24,8 @@ class TiledeskComponent extends React.Component {
             // Create inline script
             var jsCode =
                 `
-          window.tiledeskSettings =  
-          {
-            projectid: "` +
-                config.tiledesk.projectId +
-                `"
-          };
+          window.tiledeskSettings =  "`+config.tiledesk.tiledeskSettings`";
+          
           (function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
