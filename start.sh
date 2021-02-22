@@ -1,4 +1,4 @@
-#!/bin/bash
+    #!/bin/bash
 
 # Verificare che il contenuto di questa cartella di sviluppo sia identico a quello in esecuzione
 # sul server al dominio meetcustom.tiledesk.com.
